@@ -17,7 +17,19 @@ class HomePage extends StatelessWidget {
           // Lista de títulos simples
           return ListView.builder(
             itemCount: _controller.posts.length,
-            itemBuilder: (context, i) {return ListTile(title: Text(_controller.posts[i].title),); },
+            itemBuilder: (context, i) {
+              final post = _controller.posts[i];
+              return Card(
+                margin: EdgeInsets.all(8),
+                child: ListTile(
+                  leading: Icon(Icons.article),
+                  title: Text(post.title),
+                  subtitle: Text(post.body,maxLines: 2,overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),),
+                  onTap: () => print('Clicou no post: ${post.title}'),
+                ),
+              );
+            },
           );
         },
       ),
