@@ -9,7 +9,23 @@ import '../models/post.dart';
     final response = await _dio.get('https://jsonplaceholder.typicode.com/posts');
     return (response.data as List).map((json) => Post.fromJson(json)).toList();
   }
-}*/
+
+  Future<Post> createPost(String title, String body) async {
+    // O JSONPlaceholder utiliza o endpoint /posts para simular criação
+    final response = await _dio.post('https://jsonplaceholder.typicode.com/posts', data: {
+      'title': title,
+      'body': body,
+      'userId': 1, // Geralmente exigido por APIs para validar quem criou
+    });
+    
+    // Converte o JSON retornado em um objeto Post
+    return Post.fromJson(response.data);
+  }
+}
+
+
+
+*/
 
 //Usar esse dummyjason se der erro 403
 class ApiService {
@@ -22,6 +38,16 @@ class ApiService {
     final List<dynamic> data = response.data['posts'];
     
     return data.map((json) => Post.fromJson(json)).toList();
+  }
+
+  Future<Post> createPost(String title, String body) async {
+      // A API DummyJSON utiliza o endpoint /add para simular criação
+      final response = await _dio.post('https://dummyjson.com/posts/add', data: {
+        'title': title,
+        'body': body,
+        'userId': 1, // Geralmente exigido por APIs para validar quem criou
+      });
+      return Post.fromJson(response.data);
   }
 }
 

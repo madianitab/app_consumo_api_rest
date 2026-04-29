@@ -27,4 +27,20 @@ class PostController extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  Future<void> addPost(String title, String body) async {
+    try {
+      // Chama o serviço
+      final newPost = await _api.createPost(title, body);
+      
+      // Adiciona no início da lista para facilitar a visualização (Feedback imediato)
+      posts.insert(0, newPost);
+      
+      // Avisa a View que os dados mudaram
+      notifyListeners();
+    } catch (e) {
+      debugPrint("Erro ao adicionar post: $e");
+      // Opcional: tratar o erro na interface futuramente
+    }
+  }
 }
