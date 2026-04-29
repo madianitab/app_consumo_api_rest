@@ -1,4 +1,4 @@
-package com.example.aula_consumo_api
+package com.example.app_consumo_api_rest
 
 import io.flutter.embedding.android.FlutterActivity
 

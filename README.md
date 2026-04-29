@@ -1,4 +1,4 @@
-# aula_consumo_api
+# app_consumo_api_rest
 
 A new Flutter project.
 

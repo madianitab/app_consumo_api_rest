@@ -1,6 +1,6 @@
 {
-    "name": "aula_consumo_api",
-    "short_name": "aula_consumo_api",
+    "name": "app_consumo_api_rest",
+    "short_name": "app_consumo_api_rest",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

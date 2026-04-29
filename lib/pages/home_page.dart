@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Minha API - Lista Simples")),
+      appBar: AppBar(title: Text("Minha API - Lista com Card e Corpo")),
       body: ListenableBuilder(
         listenable: _controller,
         builder: (context, child) {
